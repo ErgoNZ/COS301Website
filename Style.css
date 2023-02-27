@@ -1,125 +1,507 @@
+/*General*/
 .parent {
-display : grid;
-grid-template-columns : repeat(7,1fr);
-column-gap : 0;
-row-gap : 0;
-grid-auto-rows : max-content;
+    display: grid;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-auto-columns: 1fr 5fr 1fr;
 }
-.div1 {
-grid-area : 1 / 1 / 2 / 8;
-max-height : 10vh;
+    
+.div1 { 
+      grid-area: 1 / 1 / 2 / 8;
+      max-height: 10vh; 
 }
-.div2 {
-grid-area : 2 / 2 / 6 / 7;
-margin-top : 3%;
+
+.Item{
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(44, 44, 44);
+    overflow: hidden;
+    margin: 1rem;
+    align-items: center;
 }
-.div2Item {
-border-radius : 10px;
-border-style : solid;
-border-width : 5px;
-border-color : rgb(44, 44, 44);
-margin-bottom : 2%;
-overflow : hidden;
+
+.LoginBox{
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(44, 44, 44);
+  overflow: hidden;
+  margin: 1rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
 }
-.UserInfo {
-grid-area : 2 / 2 / 3 / 7;
-border-radius : 10px;
-border-style : solid;
-border-width : 5px;
-border-color : rgb(44, 44, 44);
-margin-bottom : 2%;
-margin-top : 3%;
-display : grid;
-grid-template-columns : repeat(5,1fr);
-grid-template-rows : 1fr;
-column-gap : 0;
-row-gap : 0;
+
+
+.UserInfo { 
+  grid-area: 2 / 2 / 3 / 7;
+  margin-top: Clamp(10px,1%,1vh);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(44, 44, 44);
+  overflow: hidden;
 }
-.UserPageTxt {
-grid-area : 3 / 2 / 6 / 7;
+
+.UserPageTxt { 
+  grid-area: 3 / 2 / 6 / 7; 
 }
-.PostTitle {
-font-size : 150%;
+
+.PostTitle { 
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+  margin: 0.5rem;
 }
-.PostContent {
-font-size : 110%;
+
+.PostContent { 
+  font-size: clamp(1rem, 100%, 4rem); 
+  margin: 0.5rem;
 }
-.Date {
-font-size : 80%;
+
+.Date { 
+  font-size: clamp(0.9rem, 1vw, 1rem); 
+  margin: 0.5rem;
 }
-.UserImage {
-grid-area : 1 / 1 / 2 / 2;
-float : left;
+
+.UserImage { 
+  float: left;
+  margin: 2%;
 }
-.UserImagePost {
-height : 15vh;
-object-fit : contain;
-width : auto;
-float : left;
+.UserImagePost{
+  height:15vh;
+  object-fit: contain;
+  width:auto; 
+  float: left;
+  margin: 1%;
 }
-.UserAbout {
-grid-area : 1 / 2 / 6 / 5;
-float : left;
-font-size : 110%;
+
+.UserStats { 
+  float: left; 
+  font-size: 125%; 
+  margin-left: 1%;
 }
-.UserStats {
-grid-area : 1 / 5 / 6 / 6;
-float : right;
-font-size : 125%;
-display : flex;
-justify-content : center;
-flex-direction : column;
-border-left : 5px solid #000000;
-padding : 5px;
+
+.ProfileImage{
+  height:100px;
+  width:100px; 
+  float: left;
+  margin: 1%;
+  clip-path: circle(50% at 50% 50%);
+  border-style: solid;
+  border-radius: 50%;
+  border-color: black;
 }
+
+/*Nav Stuff goes here*/
+
+#CurrentPage{
+  background-color: #04AA6D;
+}
+
 ul {
-display : flex;
-justify-content : space-between;
-align-items : center;
-list-style-type : none;
-margin : 0;
-padding : 0;
-overflow : hidden;
-background-color : #333;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
 }
+
 li {
-float : left;
-border-right : 1px solid #bbb;
-width : 25%;
+  float: left;
+  border-right:1px solid #bbb;
+  width: 25%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 35px;
 }
+
+.ProfileImageNav{
+  clip-path: circle(50% at 50% 50%);
+  margin: 1%;
+}
+
 li a {
-color : white;
-text-align : center;
-text-decoration : none;
-font-size : 35px;
-height : 10vh;
-display : flex;
-justify-content : center;
-flex-direction : column;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: clamp(30px, 2.5vw, 2.5rem); 
+  height: 10vh;
+  display: flex;  
+  justify-content: center;  
+  flex-direction: column; 
 }
-li a:hover:not(.active) {
-background-color : #686868;
-}
-.active {
-background-color : #04AA6D;
-}
+
+li a:hover:not(.CurrentPage) {
+    background-color: #686868;
+  }
+  
+.CurrentPage {
+    background-color: #04AA6D;
+  }
+
 li:last-child {
-border-right : none;
+    border-right: none;
+  }
+
+li a img{
+  max-width:100%;
+  max-height:100%;
+  }
+
+nav{
+    border-style: solid;
+    overflow: hidden;
+    border-radius: 0px 0px 10px 10px;
 }
-li a img {
-max-width : 100%;
-max-height : 100%;
+
+img{
+  object-fit: contain;
+  width:auto; 
+  height:20vh;
 }
-nav {
-border-style : solid;
-overflow : hidden;
-border-radius : 0 0 10px 10px;
+
+body{
+  margin: 0;
 }
-img {
-object-fit : contain;
-width : auto;
-height : 20vh;
+
+/*Everything to do with forms the user interacts with starts here*/
+
+#SearchIco{
+  height:3vh;
+  width:auto; 
+  float: left;
+  border: none;
 }
-body {
-margin : 0;
+
+form.Search {
+  border: none;
+  text-align: center;
+  margin-bottom: 9px;
+}
+
+input.Search {
+  width: 100%;
+  border: 1px solid #555;
+  padding: 9px 4px 9px 50px;
+  background: transparent url("Image/Search.png") no-repeat 4px center;
+  background-size:contain;
+  background-color: white;
+}
+
+input[type="submit" i]{
+  width: max(10rem,15%);
+  height: auto;
+  margin-left: 0;
+}
+
+.text {
+  width: Min(calc(100% - 1.5rem), 150vw);
+  height: 5rem;
+  border: 1px solid #555;;
+  background-size:contain;
+  background-color: white;
+  font-size: 200%;
+  resize: none;
+  padding: 0.5rem;
+  margin-right:0.3rem;
+}
+
+form.AboutUser {
+  border: none;
+  padding: 0;
+  text-align: left;
+  margin: 0.5rem;
+  font-size: 50%;
+}
+
+.AccLogin{
+ float: left;
+}
+
+.CreateAcc{
+  float: right;
+}
+
+/*Testing code*/
+
+.MobileCheck{
+  display: none;
+}
+
+.subcontainer{
+  width: 100%;
+  margin: auto;
+}
+
+.navbar{
+display: none;
+}
+
+.nav-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.nav-branding{
+  font-size: 2rem;
+}
+
+.hamburger{
+  margin-left: 1rem;
+  display: block;
+  cursor: pointer;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  background-color: #bbb;
+}
+
+
+@media (max-width: 820px) {
+  form.Search {
+    border: none;
+    text-align: center;
+    margin-top: 0;
+    flex-grow: 1;
+    margin-right: 2rem;
+    transition: 0.5s ease;
+    width: 25%;
+  }
+
+  input.Search {
+    border: 1px solid #555;
+    padding: 9px 4px 9px 50px;
+    background: transparent url("Image/Search.png") no-repeat 4px center;
+    background-size:contain;
+    background-color: white;
+    height: 3rem;
+    transition: 0.5s ease;
+    margin: 1rem
+  }
+
+  .PcCheck{
+    display: none;
+  }
+
+  nav.MobileCheck{
+    display: block;
+  }
+
+  .hamburger{
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    gap: 0;
+    flex-direction: row;
+    background-color: #333;
+    text-align: center;
+    transition: 0.5s;
+    width: 50%;
+    font-size: clamp(30px, 2.5vw, 2.5rem); 
+  }
+  .nav-menu.active{
+    left: 17.5%;
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #333;
+  }
+  .nav-item{
+    width: 100%;
+  }
+  
+  li a{
+    font-size: 1rem; 
+  }
+
+  li:last-child {
+    border-right:1px solid #bbb;
+  }
+
+  li{
+    border-left:1px solid #bbb;
+  }
+}
+
+@media (max-width: 479px) {
+  form.Search {
+    border: none;
+    text-align: center;
+    margin-top: 0;
+    flex-grow: 1;
+    margin-right: 2rem;
+    transition: 0s;
+    width: 25%;
+  }
+
+  input.Search {
+    border: 1px solid #555;
+    padding: 9px 4px 9px 50px;
+    background: transparent url("Image/Search.png") no-repeat 4px center;
+    background-size:contain;
+    background-color: white;
+    height: 3rem;
+    transition: 0s;
+    margin: 1rem
+  }
+
+  .PcCheck{
+    display: none;
+  }
+
+  nav.MobileCheck{
+    display: block;
+  }
+  
+  .container{
+    width: 100%;
+  }
+
+  .hamburger{
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    gap: 0;
+    flex-direction: row;
+    background-color: #333;
+    text-align: center;
+    transition: 0.5s;
+    width: 50%;
+    font-size: clamp(30px, 2.5vw, 2.5rem); 
+  }
+  .nav-menu.active{
+    left: 17.5%;
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #333;
+  }
+  .nav-item{
+    width: 100%;
+  }
+
+  li a{
+    font-size: 1rem; 
+  }
+
+  li:last-child {
+    border-right:1px solid #bbb;
+  }
+
+  li{
+    border-left:1px solid #bbb;
+  }
+}
+
+@media (max-width: 300px) {
+  form.Search {
+    border: none;
+    text-align: center;
+    margin-top: 0;
+    flex-grow: 1;
+    margin-right: 2rem;
+    transition: 0s;
+    width: 25%;
+    visibility: visible;
+  }
+
+  input.Search {
+    border: 1px solid #555;
+    padding: 9px 4px 9px 50px;
+    background: transparent url("Image/Search.png") no-repeat 4px center;
+    background-size:contain;
+    background-color: white;
+    height: 3rem;
+    transition: 0s;
+    margin: 1rem
+  }
+
+  .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #333;
+  }
+
+  .PcCheck{
+    display: none;
+  }
+
+  nav.MobileCheck{
+    display: block;
+  }
+
+  .nav-menu{
+    position: fixed;
+    left: -100%;
+    gap: 0;
+    flex-direction: row;
+    background-color: #333;
+    text-align: center;
+    transition: 0.5s;
+    width: 45%;
+    border-radius: 0;
+  }
+  .nav-menu.active{
+    left: 22%;
+  }
+
+  li a{
+    font-size: 1rem; 
+  }
+
+  li:last-child {
+    border-right:1px solid #bbb;
+  }
+
+  li{
+    border-left:1px solid #bbb;
+  }
 }
